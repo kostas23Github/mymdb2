@@ -1,38 +1,86 @@
-.App {
-  text-align: center;
+body {
+  background-color: #141414;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+/* FULL PAGE CONTAINER OF EVERY PAGE */
+div.myApp {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
+  min-width: fit-content;
+  /* Always has at least the size of its children */
 }
 
-.App-link {
-  color: #61dafb;
+/* HEADER */
+/* It is always at the start of the viewport. The left offset is the padding of its container. Doesn't apply to touch events*/
+.myHeader {
+  position: sticky;
+  left: 12px;
+  max-width: 92vw;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* HEADER LOGO */
+.myLogo {
+  color: rgb(220, 13, 13);
+  text-shadow: 3px 5px black;
+}
+
+/* MOVIE'S POSTER CONTAINER */
+.myMovieContainer {
+  position: relative;
+  transition: 200ms;
+}
+
+.myMovieContainer:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  transition: 200ms ease-in;
+}
+
+.myImagePoster {
+  width: 200px;
+  height: 300px;
+}
+
+.myMovieContainer:hover>.myOverlay {
+  opacity: 1;
+}
+
+/* MOVIE'S POSTER OVERLAY EFFECT */
+.myOverlay {
+  background-color: rgb(0, 0, 0, 0.7);
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  height: 40%;
+  opacity: 0;
+  transition: 200ms;
+}
+
+/*  THE BUTTONS THAN GO TO PREV/NEXT PAGE OF MOVIE RESULTS  */
+button.carouselBtn {
+  border: none;
+  border-radius: 5px;
+  height: 300px;
+  z-index: 1;
+  opacity: 0.4;
+  transition: 200ms;
+}
+
+button.carouselBtn:hover {
+  opacity: 1;
+  transition: 200ms;
+}
+
+button.carouselBtn#left {
+  position: absolute;
+  left: 0;
+  background: linear-gradient(to right, #5a5a5ac6 10%, #5a5a5a12);
+  box-shadow: 5px 5px 35px #5a5a5a12, -5px -5px 35px #5a5a5ae1;
+}
+
+button.carouselBtn#right {
+  position: absolute;
+  right: 0;
+  background: linear-gradient(to left, #5a5a5ac6 10%, #5a5a5a12);
+  box-shadow: 5px 5px 35px #5a5a5ae1, -5px -5px 35px #5a5a5a12;
 }

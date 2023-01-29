@@ -1,25 +1,46 @@
-import logo from './logo.svg';
+import React, { useState } from 'react'
+import { Route, Routes } from 'react-router-dom'
+import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
+import Main from "./pages/Main.js"
+import Movie from "./pages/Movie.js"
+import Error from './pages/Error'
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [errorMsg, setErrorMsg] = useState('')
+    const [isPending, setIsPending] = useState(true)
+    function handlesError(errorStringMsg) {
+        setErrorMsg(errorStringMsg)
+    }
+    function handlesIsPending(value) {
+        setIsPending(value)
+    }
+
+    return (
+        <>
+            <Routes>
+                <Route path='/'
+                    element={
+                        <Main
+                            handlesError={handlesError}
+                            handlesIsPending={handlesIsPending}
+                            isPending={isPending}
+                        />} />
+                <Route path='movie'
+                    element={
+                        <Movie
+                            handlesIsPending={handlesIsPending}
+                            isPending={isPending}
+                        />} />
+                <Route path='error'
+                    element={
+                        <Error
+                            errorMsg={errorMsg}
+                        />} />
+            </Routes>
+        </>
+    )
 }
 
-export default App;
+export default App
