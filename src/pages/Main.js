@@ -132,7 +132,7 @@ function Main({
             <div className='myHeader row d-flex justify-items-between align-items-center my-4'>
               <Header text={"Favorites"} />
             </div>
-            <div className='container-fluid d-flex' style={{minHeight: "250px"}}>
+            <div className='container-fluid d-flex'>
               <FetchedMovies
                 movies={favorites}
                 favoritesList={true}
