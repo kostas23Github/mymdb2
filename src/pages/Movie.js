@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { BsFillSkipBackwardFill } from 'react-icons/bs'
 import { AiFillStar } from "react-icons/ai"
 import Pending from "../components/Pending.js"
+import Footer from "../components/footer/Footer.js"
 
 // The movie page, displays a single movie with more info
 
@@ -83,6 +84,7 @@ function Movie({
                             </div>
                         </div>
                     </div>
+                    <Footer />
                 </div>}
         </>
     )
