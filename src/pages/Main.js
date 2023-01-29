@@ -38,11 +38,10 @@ function Main({
     if (favorites && favorites.some(movie => movie.imdbID === newFavorite.imdbID)) {
       return
     }
-    console.log(newFavorite)
-    // const newFavoriteList = [...favorites, newFavorite]
-    // console.log(newFavoriteList)
-    setFavorites(prevFav => [...prevFav, newFavorite])
-    saveToLocalStorage(favorites)
+    
+    const newFavoriteList = favorites ?  [...favorites, newFavorite] : [newFavorite]
+    setFavorites(newFavoriteList)
+    saveToLocalStorage(newFavoriteList)
   }
 
   function removesFromFavorites(oldFavorite) {
