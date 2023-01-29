@@ -29,7 +29,7 @@ One more issue is the sticky position of the 2 headers and the footer that doesn
     - Fix responsiveness 
     - Add more error handling
     - Add a few more animations
-    - Add the previous viewed feature
+    - Add the previously viewed feature
 
 ## CONCLUSION
 
