@@ -35,12 +35,14 @@ function Main({
 
   function addToFavorites(newFavorite) {
     // If movie already exists in favorites movie list dont't include the new one.
-    if (favorites.some(movie => movie.imdbID === newFavorite.imdbID)) {
+    if (favorites && favorites.some(movie => movie.imdbID === newFavorite.imdbID)) {
       return
     }
-    const newFavoriteList = [...favorites, newFavorite]
-    setFavorites(newFavoriteList)
-    saveToLocalStorage(newFavoriteList)
+    console.log(newFavorite)
+    // const newFavoriteList = [...favorites, newFavorite]
+    // console.log(newFavoriteList)
+    setFavorites(prevFav => [...prevFav, newFavorite])
+    saveToLocalStorage(favorites)
   }
 
   function removesFromFavorites(oldFavorite) {
