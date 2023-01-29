@@ -42,7 +42,7 @@ function Movie({
         <>
             {isPending ? <Pending /> :
                 <div className='container-fluid myApp'>
-                    <div className="mt-3">
+                    <div className="pt-3">
                         <Link to=".."
                             className={`border rounded p-2 cursor-pointer ${hover ? ' text-dark bg-light' : 'border-white text-white'}`}
                             style={{ textDecoration: "none" }}
