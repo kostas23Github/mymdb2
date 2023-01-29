@@ -6,11 +6,12 @@ import { Link } from 'react-router-dom'
 
 function FetchedMovies({ movies, favoritesList, addsToFavoritesHandler, removesFromFavoritesHandler }) {
   return (
-    movies.map((movie, index) => (
-      <div key={index} className="myMovieContainer mx-2">
-        <Link to='movie' state={{ movie: movie.imdbID}}>
-          <img className="myImagePoster" src={movie.Poster} alt={movie.Title} />
-        </Link>
+    <>
+      {movies.length > 0 && movies.map((movie, index) => (
+        <div key={index} className="myMovieContainer mx-2">
+          <Link to='movie' state={{ movie: movie.imdbID }}>
+            <img className="myImagePoster" src={movie.Poster} alt={movie.Title} />
+          </Link>
           <div
             className='myOverlay d-flex flex-column justify-content-center align-items-center'>
             {favoritesList ?
@@ -21,8 +22,9 @@ function FetchedMovies({ movies, favoritesList, addsToFavoritesHandler, removesF
                 addsToFavoritesHandler={addsToFavoritesHandler}
                 movie={movie} />}
           </div>
-      </div>
-    ))
+        </div>
+      ))}
+    </>
   )
 }
 

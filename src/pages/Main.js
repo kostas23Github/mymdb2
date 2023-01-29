@@ -74,6 +74,7 @@ function Main({
     } else if (responseJson.imdbID) {
       setFetchedMovies([responseJson])
     }
+    
     try {
       // The user has searched sth and has finished typing and what he searched doesn't exist
       if ((queryTitle || queryId) && !focused && responseJson.Response === "False") {
